@@ -1,0 +1,50 @@
+{% extends "pennapps/base.html" %}
+{% load static %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="title-wrapper">
+    <h1 class="page-title">Thanks for applying to PennApps! </h1>
+  </div>
+  <div>
+    <div>
+      {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </ul>
+      {% endif %}
+      <p class="congrats-message">
+        We’re incredibly excited to invite you to join us on the Penn Engineering campus in Philadelphia for this fall's PennApps!
+      </p><br>
+    </div>
+    {% if user.is_authenticated %}
+    <p>Current user: {{user.username}}</p>
+    {% endif %}
+    <div class="congrats-message">
+      <p>Application Status: {{user.application.status}}</p>
+    </div>
+      <div class="row">
+        <a href="/application/" class="btn" style="margin: 0 auto; width: auto">Start Application</a>
+      </div>
+      <div class="row">
+        <div class="row" style="margin: 0 auto;">
+          <div class="col-sm-12">
+            <input  id="logout-btn"
+                    type="button"
+                    value="Logout"
+                    class="btn submit-button"
+                    onclick="location.href='http://localhost:8000/signOut/'" />
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}
