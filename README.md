@@ -16,7 +16,7 @@ When the logout button in `index.html` is clicked, it sends a request to the `si
 On the login page, there is another button that when clicked, will take you to `signup.html`. This was the hardest part to implement. Once all the fields are filled correctly, the website sends a request to the `createUser` view. `createUser` uses the Application model (which I modified to include a firstName and lastName field in `models.py`) to create a user based on the input in the form. If the creation is successful, the user is alerted with a message, and they are redirected to the index, where they can check the status of their application, create an application, or log out. 
 
 ### Authentication:
-Using `@login_required()`, I made it so that all the html pages aside from `login.html and `signup.html` are only accessible by logged-in users. In `settings.py`, I specified that `'login'` as the `LOGIN_URL` so that it would redirect to the right page. 
+Using `@login_required()`, I made it so that all the html pages aside from `login.html` and `signup.html` are only accessible by logged-in users. In `settings.py`, I specified that `'login'` as the `LOGIN_URL` so that it would redirect to the right page. 
 
 ## Part 2: User Application
 
